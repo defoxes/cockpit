@@ -70,8 +70,12 @@
                                     <li class="uk-nav-header">@lang('Actions')</li>
                                     <li><a href="@route('/forms/entries')/{form.name}">@lang('Entries')</a></li>
                                     <li class="uk-nav-divider"></li>
+                                    @hasaccess?('forms', 'edit')
                                     <li><a href="@route('/forms/form')/{ form.name }">@lang('Edit')</a></li>
+                                    @end
+                                    @hasaccess?('forms', 'delete')
                                     <li class="uk-nav-item-danger"><a class="uk-dropdown-close" onclick="{ parent.remove }">@lang('Delete')</a></li>
+                                    @end
                                     <li class="uk-nav-divider"></li>
                                     <li class="uk-text-truncate"><a href="@route('/forms/export')/{ form.meta.name }" download="{ form.meta.name }.form.json">@lang('Export entries')</a></li>
                                 </ul>
